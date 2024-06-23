@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Theodoros Kourtalis</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theodoros Kourtalis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="A personal portfolio website showcasing my projects and skills.">
+    <meta name="keywords" content="portfolio, web developer, projects, skills">
+    <meta name="author" content="Theodoros Kourtalis">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(31, 41, 55, 0.85); /* Tailwind's bg-gray-900 with opacity */
+            backdrop-filter: blur(10px); /* Optional: Add blur for better readability */
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+        .fade-in-delay {
+            opacity: 0;
+            animation: fadeIn 2s 1s ease-in forwards; /* Delay for 1 second */
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .accordion-toggle {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .accordion-toggle:hover {
+            background-color: rgba(75, 85, 99, 0.5); /* Tailwind's bg-gray-600 with opacity */
+        }
+        .accordion-content {
+            display: none;
+            transition: max-height 0.3s ease;
+            overflow: hidden;
+        }
+        .accordion-toggle.active + .accordion-content {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white transition-colors duration-500">
+    <header class="relative bg-cover bg-center h-screen" style="background-image: url('header-bg.jpg');">
+        <nav class="sticky w-full top-0 flex justify-between items-center p-5">
+            <div class="text-3xl font-bold">Theodoros Kourtalis</div>
+            <ul class="hidden md:flex space-x-5 items-center">
+                <li><a href="#about" class="hover:text-yellow-500">About</a></li>
+                <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
+                <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
+                <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
+                <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="mode-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </li>
+            </ul>
+            <button id="hamburger-button" class="md:hidden text-yellow-500">
+                <i class="fas fa-bars text-3xl"></i>
+            </button>
+            <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
+                <li><a href="#about" class="hover:text-yellow-500">About</a></li>
+                <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
+                <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
+                <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
+                <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="mobile-mode-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
+            <li><a href="#about" class="hover:text-yellow-500">About</a></li>
+            <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
+            <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
+            <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
+            <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
+            <li>
+                <label class="switch">
+                    <input type="checkbox" id="mobile-mode-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </li>
+        </ul>
+
+        
+        <div class="flex h-full items-center justify-center flex-col text-center px-4 relative z-10">
+            <h1 class="text-6xl font-bold fade-in">Welcome to My Portfolio</h1>
+            <p class="text-2xl mt-4 fade-in-delay">Showcasing my work and skills</p>
+            <a href="#projects" class="mt-6 px-8 py-4 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-600 transition">See My Work</a>
+        </div>
+        <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <section id="about" class="my-16">
+            <h2 class="text-4xl font-bold mb-6 text-center">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center text-center md:text-left">
+                <img src="Myprofilephoto.jpg" alt="Profile photo" class="w-24 h-24 md:mr-8" loading="lazy">
+                <p class="text-lg leading-relaxed mt-4 md:mt-0">
+                    As an economics student at AUEB, my passion lies in exploring the nuances of macroeconomics, microeconomics, and econometrics, with a specific focus on causal inference. Driven by a strong work ethic, I am dedicated to continuous learning and thrive in both collaborative team environments and when working independently. I am eager to delve into research opportunities within the realm of economics, leveraging my reputation for meeting deadlines and excelling in every task assigned.
+                </p>
+            </div>
+        </section>
+
+        <section id="education" class="my-16">
+            <h2 class="text-4xl font-bold mb-6 text-center">Education</h2>
+            <div class="bg-gray-800 text-white p-5 rounded-lg">
+                <div class="flex flex-col md:flex-row items-center text-center md:text-left">
+                    <img src="Athens_University_of_Economics_and_Business_Logo.jpg" alt="Athens University of Economics and Business" class="w-24 h-24 md:mr-8" loading="lazy">
+                    <div>
+                        <h3 class="text-2xl font-semibold">Athens University of Economics and Business</h3>
+                        <p class="mt-2">Oct 2023 - Jul 2027</p>
+                        <p class="mt-2">Grade: 8.7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="my-16">
+            <h2 class="text-4xl font-bold mb-6 text-center">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 text-white p-5 rounded-lg">
+                    <h3 class="text-2xl font-semibold">Microsoft Excel</h3>
+                    <p class="mt-2">Learnt at Athens University of Economics and Business</p>
+                </div>
+                <div class="bg-gray-800 text-white p-5 rounded-lg">
+                    <h3 class="text-2xl font-semibold">Stata</h3>
+                    <p class="mt-2">Learnt at Athens University of Economics and Business</p>
+                </div>
+                <div class="bg-gray-800 text-white p-5 rounded-lg">
+                    <h3 class="text-2xl font-semibold">R (Programming Language)</h3>
+                    <p class="mt-2">Learnt at Athens University of Economics and Business</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="my-16">
+            <h2 class="text-4xl font-bold mb-6 text-center">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-700 text-white p-5 rounded-lg transition-transform transform hover:scale-105 hover:bg-gray-600">
+                    <h3 class="text-2xl font-semibold">Project 1: Portfolio Website</h3>
+                    <p class="mt-2">A personal portfolio website to showcase my projects and skills. Built with HTML, CSS, and JavaScript, and designed with Tailwind CSS for a modern and responsive look.</p>
+                    <a href="https://github.com/yourusername/portfolio-website" class="text-yellow-500 mt-4 block">View on GitHub</a>
+                    <a href="https://onedrive.live.com/?cid=your_onedrive_cid&id=your_onedrive_id" class="text-yellow-500 mt-4 block">View on OneDrive</a>
+                </div>
+                <div class="bg-gray-700 text-white p-5 rounded-lg transition-transform transform hover:scale-105 hover:bg-gray-600">
+                    <h3 class="text-2xl font-semibold">Project 2: Stock Forecasting with Python</h3>
+                    <p class="mt-2">A sophisticated Python script designed for the analysis and forecasting of stock data. The script integrates multiple functionalities from data retrieval to statistical analysis and visualization.</p>
+                    <a href="https://github.com/yourusername/stock-forecasting" class="text-yellow-500 mt-4 block">View on GitHub</a>
+                    <a href="https://onedrive.live.com/?cid=your_onedrive_cid&id=your_onedrive_id" class="text-yellow-500 mt-4 block">View on OneDrive</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="my-16">
+            <h2 class="text-4xl font-bold mb-6 text-center">Contact</h2>
+            <form id="contact-form" action="https://formspree.io/f/{your_form_id}" method="POST" class="bg-gray-800 text-white p-5 rounded-lg">
+                <label for="name" class="block mt-4">Name</label>
+                <input type="text" id="name" name="name" required class="w-full p-2 mt-2 bg-gray-700 border border-gray-600 rounded">
+
+                <label for="email" class="block mt-4">Email</label>
+                <input type="email" id="email" name="email" required class="w-full p-2 mt-2 bg-gray-700 border border-gray-600 rounded">
+
+                <label for="message" class="block mt-4">Message</label>
+                <textarea id="message" name="message" rows="5" required class="w-full p-2 mt-2 bg-gray-700 border border-gray-600 rounded"></textarea>
+
+                <button type="submit" class="mt-6 w-full p-3 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-600 transition">Send</button>
+            </form>
+
+            <div class="mt-8 text-center">
+                <p>Email: <a href="mailto:thodoriskourtalisp@gmail.com" class="text-yellow-500">thodoriskourtalisp@gmail.com</a></p>
+                <p>Location: Athens, Greece</p>
+                <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="text-yellow-500">LinkedIn Profile</a>
+            </div>
+
+            <div id="map" class="mt-8 w-full h-64"></div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-6 text-center">
+        <p>&copy; 2024 Theodoros Kourtalis. All rights reserved.</p>
+        <div class="social-media mt-4">
+            <a href="https://twitter.com/yourprofile" target="_blank" class="text-yellow-500 mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/yourprofile" target="_blank" class="text-yellow-500 mx-2"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-yellow-500 mx-2"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+    <script>
+        // Dark/Light mode toggle
+        document.getElementById('mode-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.remove('bg-gray-900', 'text-white');
+                document.body.classList.add('bg-white', 'text-gray-900');
+            } else {
+                document.body.classList.remove('bg-white', 'text-gray-900');
+                document.body.classList.add('bg-gray-900', 'text-white');
+            }
+        });
+
+
+        // Scroll Spy
+        document.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 50) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Lazy Load Images
+        document.addEventListener("DOMContentLoaded", function() {
+            let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for older browsers
+                let lazyLoadThrottleTimeout;
+                function lazyLoad() {
+                    if (lazyLoadThrottleTimeout) {
+                        clearTimeout(lazyLoadThrottleTimeout);
+                    }
+
+                    lazyLoadThrottleTimeout = setTimeout(function() {
+                        let scrollTop = window.pageYOffset;
+                        lazyImages.forEach(function(img) {
+                            if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy');
+                            }
+                        });
+                        if (lazyImages.length === 0) {
+                            document.removeEventListener("scroll", lazyLoad);
+                            window.removeEventListener("resize", lazyLoad);
+                            window.removeEventListener("orientationChange", lazyLoad);
+                        }
+                    }, 20);
+                }
+
+                document.addEventListener("scroll", lazyLoad);
+                window.addEventListener("resize", lazyLoad);
+                window.addEventListener("orientationChange", lazyLoad);
+            }
+        });
+    </script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="script.js"></script>
+
+</body>
+</html>
+
